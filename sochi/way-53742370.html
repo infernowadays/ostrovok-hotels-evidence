@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Медовая — как мы это узнали</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>:root { --bg:#fbfaf7; --card:#fff; --ink:#1d1d1b; --muted:#6b6a65; --line:#e4e1d8; --accent:#0b6e4f;
+  --warn:#a35d00; --bad:#a3262a; --sky:#eaf2fb; --ground:#c9c2b0; }
+@media (prefers-color-scheme: dark) { :root { --bg:#151513; --card:#1e1e1b; --ink:#ecebe6; --muted:#a19f97;
+  --line:#33322e; --accent:#4cc79a; --warn:#e7a54b; --bad:#ef6a6e; --sky:#1b2733; --ground:#5b5649; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width:1080px; margin:0 auto; padding:24px 16px 64px; }
+h1 { font-size:26px; margin:0 0 4px; } h2 { font-size:18px; margin:32px 0 12px; }
+.muted { color:var(--muted); } .small { font-size:13px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; }
+.grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th, td { text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { font-weight:600; color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.03em; }
+.tag { display:inline-block; padding:1px 7px; border-radius:99px; font-size:12px; border:1px solid var(--line); }
+.tag.sim { color:var(--warn); border-color:var(--warn); } .tag.conflict { color:var(--bad); border-color:var(--bad); }
+.tag.ok { color:var(--accent); border-color:var(--accent); }
+.conf { display:inline-block; width:48px; height:6px; background:var(--line); border-radius:3px; vertical-align:middle; }
+.conf > i { display:block; height:6px; border-radius:3px; background:var(--accent); }
+#map { height:340px; border-radius:10px; border:1px solid var(--line); }
+.pano { width:100%; height:auto; border-radius:6px; border:1px solid var(--line); }
+.table-wrap { overflow-x:auto; }
+a { color:var(--accent); }
+blockquote { margin:4px 0 0; padding-left:10px; border-left:3px solid var(--line); color:var(--muted); font-size:13px; }
+input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--card);
+  color:var(--ink); font-size:15px; }</style>
+</head>
+<body>
+<main>
+  <p class="small muted"><a href="index.html">Все отели</a></p>
+  <h1>Медовая</h1>
+  <p class="muted">Гостевой дом · Адлерский · Медовая улица 41
+    · <a href="https://www.openstreetmap.org/way/53742370">OSM way/53742370</a> · <a href="http://www.medovaya.ru">сайт отеля</a></p>
+
+  <div class="grid">
+    <div class="card"><div class="small muted">Этажность</div><b>3</b>
+      <div class="small muted">оценка по соседним домам</div></div>
+    <div class="card"><div class="small muted">Контур здания</div><b>здание OSM</b>
+      <div class="small muted">стороны: ЮЗ 246°, СЗ 336°, СВ 66°, ЮВ 156°</div></div>
+    <div class="card"><div class="small muted">Вход</div><b>точка у ближайшей дороги</b></div>
+    <div class="card"><div class="small muted">Снимок OSM</div><b>2026-10-25</b>
+      <div class="small muted">Geofabrik, md5 3b61b671</div></div>
+  </div>
+
+  <h2>Карта и маршрут до пляжа</h2>
+  <div id="map"></div>
+  <p class="small muted">Маршрут по пешеходному графу OSM. Высота старта 28.2 м, финиша 1.0 м по рельефу Copernicus.</p>
+
+  
+  <h2>Горизонт из окон верхнего этажа</h2>
+  <p class="small muted">Поле зрения ±60° от каждой стороны. Серое — рельеф и здания, синие метки внизу — где видно море, оранжевые линии — куда садится солнце 15-го числа месяца. Рельеф без зданий в радиусе 1,2 км уточнён зданиями OSM, дальше модель поверхности Copernicus 30 м до 30 км.</p>
+  <div class="grid">
+    <div class="card"><b>Сторона ЮЗ</b> <span class="small muted">море в 0 % поля зрения</span><svg viewBox="0 0 360 120" class="pano" role="img" aria-label="Горизонт стороны ЮЗ"><rect width="360" height="120" fill="var(--sky)"/><polyline points="0,120 1.5,43.8 4.5,43.8 7.5,38.7 10.5,38.7 13.5,38.7 16.5,38.7 19.5,44.7 22.5,44.4 25.5,44.4 28.5,45.3 31.5,45.6 34.5,45.6 37.5,45.6 40.5,45.9 43.5,46.5 46.5,46.8 49.5,47.4 52.5,47.7 55.5,48.0 58.5,45.9 61.5,45.9 64.5,45.6 67.5,45.3 70.5,45.0 73.5,45.0 76.5,45.3 79.5,40.8 82.5,40.8 85.5,40.8 88.5,40.8 91.5,40.8 94.5,40.8 97.5,40.8 100.5,40.8 103.5,40.8 106.5,40.8 109.5,40.8 112.5,40.8 115.5,40.8 118.5,27.9 121.5,27.9 124.5,27.9 127.5,27.9 130.5,27.9 133.5,27.9 136.5,27.9 139.5,27.9 142.5,27.9 145.5,27.9 148.5,27.9 151.5,27.9 154.5,27.9 157.5,27.9 160.5,27.9 163.5,27.9 166.5,27.9 169.5,27.9 172.5,27.9 175.5,27.9 178.5,27.9 181.5,27.9 184.5,27.9 187.5,27.9 190.5,27.9 193.5,27.9 196.5,27.9 199.5,27.9 202.5,27.9 205.5,27.9 208.5,27.9 211.5,27.9 214.5,27.9 217.5,27.9 220.5,27.9 223.5,27.9 226.5,27.9 229.5,27.9 232.5,27.9 235.5,27.9 238.5,27.9 241.5,40.8 244.5,40.8 247.5,40.8 250.5,40.8 253.5,40.8 256.5,40.8 259.5,40.8 262.5,40.8 265.5,40.8 268.5,40.8 271.5,40.8 274.5,40.8 277.5,40.8 280.5,40.8 283.5,40.8 286.5,40.8 289.5,40.8 292.5,40.8 295.5,40.8 298.5,40.8 301.5,40.8 304.5,40.8 307.5,40.8 310.5,40.8 313.5,40.8 316.5,46.5 319.5,48.3 322.5,48.3 325.5,48.3 328.5,48.3 331.5,48.3 334.5,48.3 337.5,48.3 340.5,48.3 343.5,48.3 346.5,48.3 349.5,48.3 352.5,38.1 355.5,38.1 358.5,36.6 360,120" fill="var(--ground)" stroke="var(--ink)" stroke-width="1"/><line x1="0" x2="360" y1="60.0" y2="60.0" stroke="var(--muted)" stroke-width="0.5"/><line x1="166.2" x2="166.2" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="168.2" y="10" font-size="9" fill="#b86a00">янв</text><line x1="200.7" x2="200.7" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="202.7" y="20" font-size="9" fill="#b86a00">фев</text><line x1="244.2" x2="244.2" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="246.2" y="30" font-size="9" fill="#b86a00">мар</text><line x1="294.9" x2="294.9" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="296.9" y="10" font-size="9" fill="#b86a00">апр</text><line x1="335.1" x2="335.1" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="337.1" y="20" font-size="9" fill="#b86a00">май</text><line x1="355.5" x2="355.5" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="357.5" y="30" font-size="9" fill="#b86a00">июн</text><line x1="347.4" x2="347.4" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="349.4" y="10" font-size="9" fill="#b86a00">июл</text><line x1="313.5" x2="313.5" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="315.5" y="20" font-size="9" fill="#b86a00">авг</text><line x1="264.9" x2="264.9" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="266.9" y="30" font-size="9" fill="#b86a00">сен</text><line x1="216.0" x2="216.0" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="218.0" y="10" font-size="9" fill="#b86a00">окт</text><line x1="175.5" x2="175.5" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="177.5" y="20" font-size="9" fill="#b86a00">ноя</text><line x1="157.2" x2="157.2" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="159.2" y="30" font-size="9" fill="#b86a00">дек</text></svg></div><div class="card"><b>Сторона СЗ</b> <span class="small muted">море в 0 % поля зрения</span><svg viewBox="0 0 360 120" class="pano" role="img" aria-label="Горизонт стороны СЗ"><rect width="360" height="120" fill="var(--sky)"/><polyline points="0,120 1.5,48.3 4.5,48.3 7.5,48.3 10.5,48.3 13.5,48.3 16.5,48.3 19.5,48.3 22.5,48.3 25.5,48.3 28.5,48.3 31.5,48.3 34.5,48.3 37.5,48.3 40.5,48.3 43.5,49.8 46.5,50.4 49.5,50.4 52.5,36.6 55.5,36.6 58.5,35.1 61.5,36.6 64.5,36.6 67.5,36.6 70.5,35.1 73.5,35.1 76.5,35.1 79.5,35.1 82.5,35.1 85.5,38.1 88.5,38.1 91.5,38.1 94.5,38.1 97.5,33.6 100.5,33.6 103.5,33.6 106.5,33.6 109.5,33.6 112.5,33.6 115.5,33.6 118.5,32.1 121.5,32.1 124.5,32.1 127.5,32.1 130.5,32.1 133.5,35.1 136.5,48.3 139.5,50.7 142.5,50.7 145.5,48.9 148.5,48.6 151.5,37.5 154.5,37.5 157.5,37.5 160.5,33.0 163.5,33.0 166.5,33.0 169.5,33.0 172.5,33.0 175.5,33.0 178.5,24.6 181.5,24.6 184.5,24.6 187.5,24.6 190.5,24.6 193.5,24.0 196.5,24.6 199.5,24.6 202.5,24.0 205.5,24.0 208.5,24.0 211.5,25.2 214.5,25.8 217.5,16.5 220.5,16.5 223.5,13.8 226.5,13.8 229.5,12.6 232.5,12.6 235.5,12.6 238.5,12.6 241.5,12.6 244.5,13.8 247.5,13.8 250.5,15.3 253.5,7.2 256.5,7.2 259.5,7.2 262.5,7.2 265.5,7.2 268.5,7.2 271.5,7.2 274.5,7.2 277.5,7.2 280.5,7.2 283.5,7.2 286.5,7.2 289.5,7.2 292.5,15.0 295.5,15.0 298.5,15.0 301.5,15.0 304.5,16.2 307.5,16.5 310.5,16.5 313.5,16.5 316.5,16.5 319.5,16.5 322.5,16.5 325.5,16.5 328.5,16.5 331.5,19.8 334.5,19.8 337.5,19.8 340.5,21.6 343.5,21.6 346.5,22.8 349.5,22.8 352.5,22.8 355.5,24.3 358.5,24.3 360,120" fill="var(--ground)" stroke="var(--ink)" stroke-width="1"/><line x1="0" x2="360" y1="60.0" y2="60.0" stroke="var(--muted)" stroke-width="0.5"/><line x1="24.9" x2="24.9" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="26.9" y="10" font-size="9" fill="#b86a00">апр</text><line x1="65.1" x2="65.1" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="67.1" y="20" font-size="9" fill="#b86a00">май</text><line x1="85.5" x2="85.5" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="87.5" y="30" font-size="9" fill="#b86a00">июн</text><line x1="77.4" x2="77.4" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="79.4" y="10" font-size="9" fill="#b86a00">июл</text><line x1="43.5" x2="43.5" y1="0" y2="120" stroke="#e8890c" stroke-dasharray="2,3"/><text x="45.5" y="20" font-size="9" fill="#b86a00">авг</text></svg></div><div class="card"><b>Сторона СВ</b> <span class="small muted">море в 0 % поля зрения</span><svg viewBox="0 0 360 120" class="pano" role="img" aria-label="Горизонт стороны СВ"><rect width="360" height="120" fill="var(--sky)"/><polyline points="0,120 1.5,16.2 4.5,15.0 7.5,15.0 10.5,15.0 13.5,17.7 16.5,17.7 19.5,18.9 22.5,21.6 25.5,21.6 28.5,19.8 31.5,19.8 34.5,19.8 37.5,19.8 40.5,19.8 43.5,19.8 46.5,19.8 49.5,21.6 52.5,22.8 55.5,22.5 58.5,22.5 61.5,22.5 64.5,19.5 67.5,19.5 70.5,15.9 73.5,19.5 76.5,19.5 79.5,22.5 82.5,22.5 85.5,22.5 88.5,22.5 91.5,24.0 94.5,23.1 97.5,23.1 100.5,24.0 103.5,24.0 106.5,23.4 109.5,21.3 112.5,11.4 115.5,11.4 118.5,11.4 121.5,11.4 124.5,16.8 127.5,16.8 130.5,16.8 133.5,16.8 136.5,16.8 139.5,8.4 142.5,8.4 145.5,0.6 148.5,0.6 151.5,0.6 154.5,0.6 157.5,0.6 160.5,0.6 163.5,0.6 166.5,4.8 169.5,4.8 172.5,0.6 175.5,0.6 178.5,0.6 181.5,0.6 184.5,0.6 187.5,0.6 190.5,0.6 193.5,0.6 196.5,4.8 199.5,4.8 202.5,4.8 205.5,4.8 208.5,4.8 211.5,0.6 214.5,0.6 217.5,0.6 220.5,0.6 223.5,0.6 226.5,3.0 229.5,2.7 232.5,2.1 235.5,2.1 238.5,1.5 241.5,1.2 244.5,0.6 247.5,0.6 250.5,0.9 253.5,0.6 256.5,0.6 259.5,0.3 262.5,0.3 265.5,0.0 268.5,0.0 271.5,0.0 274.5,0.0 277.5,0.0 280.5,0.0 283.5,0.0 286.5,0.6 289.5,0.6 292.5,0.6 295.5,0.6 298.5,0.9 301.5,0.9 304.5,1.2 307.5,1.5 310.5,2.1 313.5,2.7 316.5,3.9 319.5,4.2 322.5,4.2 325.5,4.5 328.5,4.5 331.5,4.8 334.5,6.0 337.5,6.6 340.5,6.6 343.5,6.6 346.5,6.3 349.5,7.8 352.5,8.1 355.5,8.1 358.5,8.1 360,120" fill="var(--ground)" stroke="var(--ink)" stroke-width="1"/><line x1="0" x2="360" y1="60.0" y2="60.0" stroke="var(--muted)" stroke-width="0.5"/></svg></div><div class="card"><b>Сторона ЮВ</b> <span class="small muted">море в 0 % поля зрения</span><svg viewBox="0 0 360 120" class="pano" role="img" aria-label="Горизонт стороны ЮВ"><rect width="360" height="120" fill="var(--sky)"/><polyline points="0,120 1.5,0.6 4.5,0.6 7.5,0.6 10.5,0.9 13.5,0.9 16.5,3.3 19.5,3.3 22.5,3.6 25.5,3.6 28.5,4.2 31.5,4.2 34.5,4.5 37.5,4.5 40.5,4.5 43.5,4.5 46.5,6.3 49.5,6.6 52.5,6.3 55.5,6.3 58.5,6.3 61.5,6.0 64.5,7.2 67.5,8.4 70.5,8.4 73.5,8.4 76.5,9.0 79.5,9.0 82.5,11.4 85.5,11.4 88.5,12.0 91.5,13.5 94.5,14.1 97.5,14.1 100.5,15.9 103.5,16.5 106.5,16.8 109.5,18.3 112.5,19.5 115.5,20.4 118.5,22.2 121.5,18.6 124.5,18.6 127.5,18.6 130.5,18.6 133.5,18.6 136.5,18.6 139.5,18.6 142.5,18.6 145.5,18.6 148.5,18.6 151.5,18.6 154.5,24.9 157.5,24.9 160.5,24.9 163.5,24.9 166.5,24.9 169.5,24.9 172.5,24.9 175.5,24.9 178.5,18.6 181.5,18.6 184.5,18.6 187.5,18.6 190.5,18.6 193.5,18.6 196.5,18.6 199.5,18.6 202.5,18.6 205.5,18.6 208.5,18.6 211.5,18.6 214.5,18.6 217.5,18.6 220.5,24.9 223.5,24.9 226.5,24.9 229.5,24.9 232.5,24.9 235.5,24.9 238.5,24.9 241.5,24.9 244.5,24.9 247.5,24.9 250.5,24.9 253.5,29.4 256.5,29.4 259.5,29.4 262.5,29.4 265.5,29.4 268.5,29.4 271.5,29.4 274.5,29.4 277.5,43.5 280.5,43.2 283.5,43.8 286.5,38.1 289.5,38.1 292.5,38.1 295.5,38.7 298.5,38.7 301.5,44.7 304.5,44.7 307.5,44.4 310.5,44.7 313.5,45.6 316.5,45.9 319.5,45.6 322.5,45.9 325.5,46.2 328.5,46.8 331.5,47.1 334.5,45.9 337.5,45.9 340.5,45.6 343.5,45.3 346.5,45.0 349.5,45.3 352.5,45.6 355.5,45.9 358.5,50.1 360,120" fill="var(--ground)" stroke="var(--ink)" stroke-width="1"/><line x1="0" x2="360" y1="60.0" y2="60.0" stroke="var(--muted)" stroke-width="0.5"/></svg></div>
+  </div>
+  <div class="table-wrap"><table>
+    <tr><th>Этаж</th><th>Море, доля поля зрения</th><th>Закат виден</th><th>Горы</th></tr>
+    <tr><td>1</td><td>0 %</td>
+      <td>нет</td>
+      <td>0 %</td></tr><tr><td>2</td><td>0 %</td>
+      <td>нет</td>
+      <td>0 %</td></tr><tr><td>3</td><td>0 %</td>
+      <td>нет</td>
+      <td>0 %</td></tr>
+  </table></div>
+  
+
+  <h2>Что мы знаем и откуда</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Характеристика</th><th>Значение</th><th>Источник и метод</th><th>Уверенность</th><th>Получено · годно до</th></tr>
+    
+    <tr>
+      <td rowspan="1"><b>Тип размещения</b><div class="small muted">Отель, гостевой дом, хостел, апартаменты или мотель по тегу tourism в OSM</div>
+        </td>
+      <td>Гостевой дом
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · hotel_field:kind:a6d24383@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:95%"></i></span> 0.95</td>
+      <td class="small">2026-10-26 · 2027-10-26</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Район Сочи</b><div class="small muted">Внутригородской район или Сириус по административным границам OSM</div>
+        </td>
+      <td>Адлерский
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · hotel_field:district:27f7bc22@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:95%"></i></span> 0.95</td>
+      <td class="small">2026-10-26 · 2027-10-26</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Звёзд</b><div class="small muted">Звёздность из тега stars в OSM</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · hotel_field:stars:5cedf7a2@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-10-26</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Этажей в здании</b><div class="small muted">Этажность здания из building:levels или height в OSM</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · hotel_field:floors:3afa801a@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-10-26</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>До пляжа пешком, м</b><div class="small muted">Длина кратчайшего пешего маршрута от входа до ближайшего пляжа (natural=beach)</div>
+        </td>
+      <td>1020
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · walk_route:distance:338698c1@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:75%"></i></span> 0.75</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Подъём от пляжа к отелю, м</b><div class="small muted">Сумма подъёмов на обратном пути с пляжа по рельефу Copernicus</div>
+        </td>
+      <td>29
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · walk_route:climb:338698c1@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:65%"></i></span> 0.65</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Переходов через оживлённые дороги до пляжа</b><div class="small muted">Сколько раз маршрут пересекает магистральные, основные и второстепенные улицы</div>
+        </td>
+      <td>0
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · walk_route:busy_crossings:338698c1@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:60%"></i></span> 0.6</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Переходов без светофора до пляжа</b><div class="small muted">Пересечения оживлённых улиц, где в OSM нет светофора</div>
+        </td>
+      <td>0
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · walk_route:unsignalled_crossings:338698c1@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:55%"></i></span> 0.55</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>До остановки пешком, м</b><div class="small muted">Пешком до ближайшей остановки общественного транспорта</div>
+        </td>
+      <td>390
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · walk_route:distance:60fd65d7@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:75%"></i></span> 0.75</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>До ж/д станции пешком, м</b><div class="small muted">Пешком до ближайшей железнодорожной станции или платформы</div>
+        </td>
+      <td>1490
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · walk_route:distance:f57bec55@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:75%"></i></span> 0.75</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Круглосуточная аптека в 500 м</b><div class="small muted">Аптека, которая по opening_hours работает в 2 часа ночи, в 500 м пешком</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · night_open:exists:440c1669@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-01-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Круглосуточный магазин в 500 м</b><div class="small muted">Продуктовый магазин, который по opening_hours работает в 2 часа ночи, в 500 м по прямой</div>
+        </td>
+      <td>да
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · night_open:exists:b6c81799@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:75%"></i></span> 0.75</td>
+      <td class="small">2026-10-26 · 2027-01-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Баров и клубов в 300 м</b><div class="small muted">Бары, пабы и ночные клубы в радиусе 300 м по прямой</div>
+        </td>
+      <td>0
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · count_within:count:8d5bafcf@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:55%"></i></span> 0.55</td>
+      <td class="small">2026-10-26 · 2027-01-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Кафе и ресторанов в 300 м</b><div class="small muted">Кафе, рестораны и фастфуд в радиусе 300 м</div>
+        </td>
+      <td>0
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · count_within:count:2b6e4dca@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:55%"></i></span> 0.55</td>
+      <td class="small">2026-10-26 · 2027-01-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Супермаркет в 500 м</b><div class="small muted">Есть ли супермаркет в радиусе 500 м</div>
+        </td>
+      <td>нет
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · count_within:exists:93725972@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:55%"></i></span> 0.55</td>
+      <td class="small">2026-10-26 · 2027-01-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Детских площадок в 300 м</b><div class="small muted">Детские площадки в радиусе 300 м</div>
+        </td>
+      <td>1
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · count_within:count:272558e2@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:80%"></i></span> 0.8</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Парк или сквер в 300 м</b><div class="small muted">Парк, сад или сквер в радиусе 300 м</div>
+        </td>
+      <td>нет
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · count_within:exists:53c15c85@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:55%"></i></span> 0.55</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>До больницы, км</b><div class="small muted">По прямой до ближайшей больницы</div>
+        </td>
+      <td>4.6
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · nearest_straight:km:ada36370@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:90%"></i></span> 0.9</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>До аэропорта Сочи, км</b><div class="small muted">По прямой до аэропорта Сочи</div>
+        </td>
+      <td>5.3
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · nearest_straight:km:8e70e787@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:90%"></i></span> 0.9</td>
+      <td class="small">2026-10-26 · 2036-10-23</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>До Морского вокзала, км</b><div class="small muted">По прямой до Морского вокзала в центре Сочи</div>
+        </td>
+      <td>18.6
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · nearest_straight:km:9aaeb8ca@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:90%"></i></span> 0.9</td>
+      <td class="small">2026-10-26 · 2036-10-23</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Парковка в 200 м</b><div class="small muted">Общественная или платная парковка в радиусе 200 м по данным OSM</div>
+        </td>
+      <td>да
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · count_within:exists:146914ff@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:80%"></i></span> 0.8</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Зарядка для электромобиля в 2 км</b><div class="small muted">Зарядная станция для электромобилей в радиусе 2 км</div>
+        </td>
+      <td>нет
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · count_within:exists:5c187faa@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:55%"></i></span> 0.55</td>
+      <td class="small">2026-10-26 · 2027-01-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Подъезд на машине к входу</b><div class="small muted">Проезжая улица не дальше 30 м от входа, отель не в пешеходной зоне</div>
+        </td>
+      <td>да
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · car_access:exists:c400b4ad@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Тишина ночью</b><div class="small muted">Тихо, умеренно или шумно на самой тихой стороне здания по дорогам, железной дороге, барам и клубам</div>
+        </td>
+      <td>тихо
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · noise:label:75347c76@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Тихая сторона здания</b><div class="small muted">Сторона света самой тихой стороны здания</div>
+        </td>
+      <td>СВ
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · noise:quiet_side:75347c76@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Шум ночью, балл 0–10</b><div class="small muted">Оценка шума на самой тихой стороне здания, 0 тихо, 10 шумно</div>
+        </td>
+      <td>0.4
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · noise:score:75347c76@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Вид на море</b><div class="small muted">Хотя бы с одной стороны здания видно море не меньше 10 % поля зрения окна</div>
+        </td>
+      <td>нет
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · horizon:sea:fcf71afe@v2</div>
+        </td>
+      <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Вид на море с этажа</b><div class="small muted">Самый низкий этаж, с которого видно море</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · horizon:sea_floor:fcf71afe@v2</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Закат из окон</b><div class="small muted">Солнце садится в открытый горизонт хотя бы три месяца в году с одной из сторон здания</div>
+        </td>
+      <td>нет
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · horizon:sunset:fcf71afe@v2</div>
+        </td>
+      <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Закат виден с этажа</b><div class="small muted">Самый низкий этаж, с которого закат виден не меньше трёх месяцев в году</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · horizon:sunset_floor:fcf71afe@v2</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Закат виден в месяцы (верхний этаж)</b><div class="small muted">Месяцы, когда закат виден с верхнего этажа</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · horizon:sunset_months:fcf71afe@v2</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Закат над морем</b><div class="small muted">Солнце садится в море хотя бы в один месяц</div>
+        </td>
+      <td>нет
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · horizon:sunset_sea:fcf71afe@v2</div>
+        </td>
+      <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Вид на горы</b><div class="small muted">Горы дальше 3 км поднимаются над горизонтом не меньше чем на 2 градуса в поле зрения окна</div>
+        </td>
+      <td>нет
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/53742370 · horizon:mountain:fcf71afe@v2</div>
+        </td>
+      <td><span class="conf"><i style="width:45%"></i></span> 0.45</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr><td><b>Питомцы</b><div class="small muted">Можно ли с животными по словам отеля — можно, нельзя или по согласованию</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Питомцы, условия</b><div class="small muted">Ограничения по весу, виду животного и доплата</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Парковка у отеля</b><div class="small muted">Есть ли у отеля своя парковка по словам отеля</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Бассейн</b><div class="small muted">Есть ли в отеле бассейн</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Отель заявляет вид на море</b><div class="small muted">На сайте отеля прямо сказано, что из номеров виден море</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Площадь номера, м²</b><div class="small muted">Площадь номера по сайту отеля</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Балкон в номере</b><div class="small muted">Есть ли в номере балкон или лоджия</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Вид из номера по словам отеля</b><div class="small muted">Какой вид из номера заявляет отель — море, горы, город, двор</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Шумоизоляция в номерах</b><div class="small muted">Стеклопакеты с шумоизоляцией или другие меры против шума в номерах</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">только отельер</td><td></td><td></td></tr>
+    
+    <tr><td><b>Плотные шторы</b><div class="small muted">Шторы блэкаут или плотные шторы в номерах</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">только отельер</td><td></td><td></td></tr>
+    
+    <tr><td><b>Номера на запад</b><div class="small muted">Какие номера или этажи выходят на запад, откуда виден закат, по словам отельера</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">только отельер</td><td></td><td></td></tr>
+    
+  </table></div>
+
+  
+
+  
+  <h2>Вопросы отельеру</h2>
+  <div class="card" style="margin-bottom:8px">
+    <div class="small muted">#6770 · 2026-10-26 · нет данных
+      </div>
+    <div><b>Агент:</b> Сколько звёзд у отеля по классификации?</div>
+    <div class="muted">ждём ответа</div>
+  </div><div class="card" style="margin-bottom:8px">
+    <div class="small muted">#6771 · 2026-10-26 · нет данных
+      </div>
+    <div><b>Агент:</b> Сколько этажей в здании, где находятся номера?</div>
+    <div class="muted">ждём ответа</div>
+  </div><div class="card" style="margin-bottom:8px">
+    <div class="small muted">#6772 · 2026-10-26 · нет данных
+      </div>
+    <div><b>Агент:</b> Можно ли заселиться с собакой или кошкой? Есть ли ограничения по весу и доплата?</div>
+    <div class="muted">ждём ответа</div>
+  </div><div class="card" style="margin-bottom:8px">
+    <div class="small muted">#6773 · 2026-10-26 · нет данных
+      </div>
+    <div><b>Агент:</b> Есть ли у отеля своя парковка и сколько она стоит?</div>
+    <div class="muted">ждём ответа</div>
+  </div><div class="card" style="margin-bottom:8px">
+    <div class="small muted">#6774 · 2026-10-26 · нет данных
+      </div>
+    <div><b>Агент:</b> Есть ли в номерах шумоизоляция, например стеклопакеты с шумоизоляцией?</div>
+    <div class="muted">ждём ответа</div>
+  </div><div class="card" style="margin-bottom:8px">
+    <div class="small muted">#6775 · 2026-10-26 · нет данных
+      </div>
+    <div><b>Агент:</b> Есть ли в номерах плотные шторы, чтобы спать днём?</div>
+    <div class="muted">ждём ответа</div>
+  </div><div class="card" style="margin-bottom:8px">
+    <div class="small muted">#6776 · 2026-10-26 · нет данных
+      </div>
+    <div><b>Агент:</b> Какие номера выходят на запад, с каких этажей из них виден закат?</div>
+    <div class="muted">ждём ответа</div>
+  </div>
+  
+
+  <p class="small muted" style="margin-top:40px">Данные © участники OpenStreetMap (ODbL). Рельеф: Copernicus DEM GLO-30 © DLR e.V. 2010–2014 и © Airbus Defence and Space GmbH 2014–2018, предоставлено по программе Copernicus ЕС и ЕКА. Страница собрана 26.10.2026 14:46.</p>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const map = L.map('map').setView([43.474852, 39.900827], 16);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19, attribution: '© участники OpenStreetMap'}).addTo(map);
+L.marker([43.474852, 39.900827]).addTo(map).bindPopup("\u041c\u0435\u0434\u043e\u0432\u0430\u044f");
+const route = [[39.901129, 43.475059], [39.901004, 43.475374], [39.900462, 43.47519], [39.900224, 43.47559], [39.90013, 43.475553], [39.899984, 43.475464], [39.899528, 43.475282], [39.899021, 43.475145], [39.898869, 43.475117], [39.898788, 43.475117], [39.898485, 43.475163], [39.898295, 43.475162], [39.898261, 43.475151], [39.898068, 43.475038], [39.89797, 43.47522], [39.897936, 43.475398], [39.897929, 43.475418], [39.897915, 43.475453], [39.89737, 43.47534], [39.897387, 43.475303], [39.897492, 43.475324], [39.897526, 43.47524], [39.897559, 43.475156], [39.897642, 43.475095], [39.897657, 43.475066], [39.897856, 43.474504], [39.897885, 43.474422], [39.896954, 43.474203], [39.896797, 43.474165], [39.896128, 43.474004], [39.895971, 43.473966], [39.8955, 43.473847], [39.894644, 43.473633], [39.893978, 43.473475], [39.893813, 43.473436], [39.89342, 43.473354], [39.892955, 43.473256], [39.892862, 43.473238], [39.8928, 43.473233], [39.892758, 43.473231], [39.892636, 43.47322], [39.892611, 43.473224], [39.892488, 43.47319]].map(p => [p[1], p[0]]);
+const line = L.polyline(route, {color: '#0b6e4f', weight: 4}).addTo(map);
+const fit = () => { map.invalidateSize(); map.fitBounds(line.getBounds().pad(0.3), {maxZoom: 17}); };
+fit(); window.addEventListener('load', fit); window.addEventListener('resize', fit);
+</script>
+</body>
+</html>
