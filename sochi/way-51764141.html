@@ -30,23 +30,27 @@ th { font-weight:600; color:var(--muted); font-size:12px; text-transform:upperca
 a { color:var(--accent); }
 blockquote { margin:4px 0 0; padding-left:10px; border-left:3px solid var(--line); color:var(--muted); font-size:13px; }
 input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--card);
-  color:var(--ink); font-size:15px; }</style>
+  color:var(--ink); font-size:15px; }
+.hero { width:100%; max-height:420px; object-fit:cover; border-radius:12px; border:1px solid var(--line); margin:12px 0 4px; }
+.lead { font-size:17px; line-height:1.55; margin:12px 0; }
+.btn { display:inline-block; padding:10px 16px; border-radius:10px; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; margin:4px 8px 4px 0; }
+.btn--ghost { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+h3 { font-size:16px; margin:20px 0 8px; }</style>
 </head>
 <body>
 <main>
-  <p class="small muted"><a href="index.html">Все отели</a></p>
+  <p class="small muted"><a href="index.html">Все отели Сочи</a></p>
   <h1>Azimut Парк Отель Виноградная</h1>
-  <p class="muted">Отель · Центральный · Виноградная улица 101/1
-    · <a href="https://www.openstreetmap.org/way/51764141">OSM way/51764141</a> · <a href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi">сайт отеля</a></p>
+  <p class="muted">Отель · Центральный · Виноградная улица 101/1</p>
+  <img class="hero" src="https://azimuthotels.com/uploads/admin/480ac1f2a309f90c7c6a9f2ec253e1f527616ece.png" alt="Azimut Парк Отель Виноградная" loading="lazy">
+  <p class="lead">Отель в Центральном районе Сочи, 4 звезды, Виноградная улица 101/1. До пляжа 1360 м пешком, обратно подъём 76 м. Из окон: море видно с 1-го этажа. Ночью умеренно шумно, в номерах шумоизоляция. В отеле: бассейн (закрытый подогреваемый и открытый подогреваемый), Wi-Fi, СПА или сауна, своя парковка (бесплатная), для детей: детская комната, детские зоны, питание: трёхразовое питание, шведский стол или сет-меню, ресторан «НЕВА». С питомцами можно: до 15 кг, 1000 руб./сутки, возвратный депозит 5000 руб.. Рядом: кафе и ресторанов в 300 м: 1. Транспорт: до аэропорта 26.5 км, до ж/д станции 3370 м пешком, до остановки 660 м, до центра Сочи (Морской вокзал) 3.8 км, подъезда на машине к самому входу нет. В номерах плотные шторы. Сайт отеля: https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi.</p>
+  <p>
+    <a class="btn" href="https://ostrovok.ru/hotel/russia/sochi/?q=Azimut%20%D0%9F%D0%B0%D1%80%D0%BA%20%D0%9E%D1%82%D0%B5%D0%BB%D1%8C%20%D0%92%D0%B8%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D0%BD%D0%B0%D1%8F" rel="noreferrer">Цены и бронирование на Островке</a>
+    <a class="btn btn--ghost" href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi" rel="noreferrer">Сайт отеля</a>
+  </p>
 
   <div class="grid">
-    <div class="card"><div class="small muted">Этажность</div><b>1</b>
-      <div class="small muted">оценка по соседним домам</div></div>
-    <div class="card"><div class="small muted">Контур здания</div><b>приблизительный</b>
-      <div class="small muted">стороны: З 270°, С 0°, В 90°, Ю 180°</div></div>
-    <div class="card"><div class="small muted">Вход</div><b>точка у ближайшей дороги</b></div>
-    <div class="card"><div class="small muted">Снимок OSM</div><b>2026-10-25</b>
-      <div class="small muted">Geofabrik, md5 3b61b671</div></div>
+    <div class="card"><div class="small muted">До пляжа пешком</div><b>1360 м</b></div><div class="card"><div class="small muted">Вид на море</div><b>с 1-го этажа</b></div><div class="card"><div class="small muted">Закат из окон</div><b>нет</b></div><div class="card"><div class="small muted">Ночью</div><b>умеренно</b></div><div class="card"><div class="small muted">Питомцы</div><b>можно</b></div><div class="card"><div class="small muted">До аэропорта</div><b>26.5 км</b></div>
   </div>
 
   <h2>Карта и маршрут до пляжа</h2>
@@ -67,7 +71,18 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
   </table></div>
   
 
-  <h2>Что мы знаем и откуда</h2>
+  <h2 id="how">Как мы это узнали</h2>
+  <p class="small muted">Раздел для проверки данных: источник, метод, уверенность и дата каждого значения.</p>
+  <div class="grid">
+    <div class="card"><div class="small muted">Этажность</div><b>1</b>
+      <div class="small muted">оценка по соседним домам</div></div>
+    <div class="card"><div class="small muted">Контур здания</div><b>приблизительный</b>
+      <div class="small muted">стороны: З 270°, С 0°, В 90°, Ю 180°</div></div>
+    <div class="card"><div class="small muted">Вход</div><b>точка у ближайшей дороги</b></div>
+    <div class="card"><div class="small muted">Снимок OSM</div><b>2026-10-25</b>
+      <div class="small muted">Geofabrik, md5 3b61b671 · <a href="https://www.openstreetmap.org/way/51764141">OSM way/51764141</a></div></div>
+  </div>
+  <h3>Значения, источники, уверенность</h3>
   <div class="table-wrap"><table>
     <tr><th>Характеристика</th><th>Значение</th><th>Источник и метод</th><th>Уверенность</th><th>Получено · годно до</th></tr>
     
@@ -133,6 +148,39 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
         <div class="small muted">вопрос #6376 · hotelier_parse:v1</div>
         <blockquote>«3 этажа»</blockquote></td>
       <td><span class="conf"><i style="width:80%"></i></span> 0.8</td>
+      <td class="small">2026-10-26 · 2027-10-26</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Wi-Fi</b><div class="small muted">Есть ли Wi-Fi по тегу internet_access в OSM или по сайту отеля</div>
+        </td>
+      <td>да
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/51764141 · hotel_field:wifi:7013ac2f@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:95%"></i></span> 0.95</td>
+      <td class="small">2026-10-26 · 2027-10-26</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Доступно для колясок</b><div class="small muted">Доступность для инвалидных колясок по тегу wheelchair в OSM</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/51764141 · hotel_field:wheelchair:03e26113@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-10-26</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Номеров в отеле</b><div class="small muted">Число номеров по OSM или сайту отеля</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/51764141 · hotel_field:rooms_total:3a46812e@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
       <td class="small">2026-10-26 · 2027-10-26</td>
     </tr>
     <tr>
@@ -350,10 +398,10 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
       <td>умеренно
         </td>
       <td>расчёт по OpenStreetMap и рельефу Copernicus
-        <div class="small muted">OSM way/51764141 · noise:label:75347c76@v1</div>
+        <div class="small muted">OSM way/51764141 · noise:label:7821c917@v1</div>
         </td>
       <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
-      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: умеренно (2026-10-26)</div></td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: умеренно (2026-10-26), умеренно (2026-10-26)</div></td>
     </tr>
     <tr>
       <td rowspan="1"><b>Тихая сторона здания</b><div class="small muted">Сторона света самой тихой стороны здания</div>
@@ -361,21 +409,21 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
       <td>З
         </td>
       <td>расчёт по OpenStreetMap и рельефу Copernicus
-        <div class="small muted">OSM way/51764141 · noise:quiet_side:75347c76@v1</div>
+        <div class="small muted">OSM way/51764141 · noise:quiet_side:7821c917@v1</div>
         </td>
       <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
-      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: З (2026-10-26)</div></td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: З (2026-10-26), З (2026-10-26)</div></td>
     </tr>
     <tr>
       <td rowspan="1"><b>Шум ночью, балл 0–10</b><div class="small muted">Оценка шума на самой тихой стороне здания, 0 тихо, 10 шумно</div>
         </td>
-      <td>1.3
+      <td>1.5
         </td>
       <td>расчёт по OpenStreetMap и рельефу Copernicus
-        <div class="small muted">OSM way/51764141 · noise:score:75347c76@v1</div>
+        <div class="small muted">OSM way/51764141 · noise:score:7821c917@v1</div>
         </td>
       <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
-      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: 1.4 (2026-10-26)</div></td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: 1.4 (2026-10-26), 1.3 (2026-10-26)</div></td>
     </tr>
     <tr>
       <td rowspan="1"><b>Вид на море</b><div class="small muted">Хотя бы с одной стороны здания видно море не меньше 10 % поля зрения окна</div>
@@ -470,21 +518,21 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
       <td>можно
         </td>
       <td>сайт отеля
-        <div class="small muted"><a href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi">https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-</a> · site_extract:v1</div>
+        <div class="small muted"><a href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi">https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-</a> · site_amenities:v1</div>
         <blockquote>«Доступно проживание с животными!»</blockquote></td>
       <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
-      <td class="small">2026-10-26 · 2027-04-24</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: можно (2026-10-26)</div></td>
     </tr>
     <tr>
       <td rowspan="1"><b>Питомцы, условия</b><div class="small muted">Ограничения по весу, виду животного и доплата</div>
         </td>
-      <td>до 15 кг, 1 000 руб./сутки, возвратный депозит 5 000 руб.
+      <td>до 15 кг, 1000 руб./сутки, возвратный депозит 5000 руб.
         </td>
       <td>сайт отеля
-        <div class="small muted"><a href="https://azimuthotels.com/ru/facilities/pets_friendly_vinogradnaya">https://azimuthotels.com/ru/facilities/pets_friendly_vinogra</a> · site_extract:v1</div>
+        <div class="small muted"><a href="https://azimuthotels.com/ru/facilities/pets_friendly_vinogradnaya">https://azimuthotels.com/ru/facilities/pets_friendly_vinogra</a> · site_amenities:v1</div>
         <blockquote>«Стоимость размещения домашнего животного: 1 000 руб./сутки при весе до 15 кг»</blockquote></td>
       <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
-      <td class="small">2026-10-26 · 2027-04-24</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: до 15 кг, 1 000 руб./сутки, возвратный депозит 5 000 руб. (2026-10-26)</div></td>
     </tr>
     <tr>
       <td rowspan="1"><b>Парковка у отеля</b><div class="small muted">Есть ли у отеля своя парковка по словам отеля</div>
@@ -492,10 +540,10 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
       <td>да
         </td>
       <td>сайт отеля
-        <div class="small muted"><a href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi">https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-</a> · site_extract:v1</div>
+        <div class="small muted"><a href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi">https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-</a> · site_amenities:v1</div>
         <blockquote>«Бесплатная парковка, круглосуточный ресепшен»</blockquote></td>
       <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
-      <td class="small">2026-10-26 · 2027-04-24</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: да (2026-10-26)</div></td>
     </tr>
     <tr>
       <td rowspan="1"><b>Бассейн</b><div class="small muted">Есть ли в отеле бассейн</div>
@@ -503,10 +551,10 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
       <td>да
         </td>
       <td>сайт отеля
-        <div class="small muted"><a href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi">https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-</a> · site_extract:v1</div>
+        <div class="small muted"><a href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi">https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-</a> · site_amenities:v1</div>
         <blockquote>«Подогреваемый бассейн закрытого типа»</blockquote></td>
       <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
-      <td class="small">2026-10-26 · 2027-04-24</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: да (2026-10-26)</div></td>
     </tr>
     <tr>
       <td rowspan="1"><b>Отель заявляет вид на море</b><div class="small muted">На сайте отеля прямо сказано, что из номеров виден море</div>
@@ -553,6 +601,185 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
     <tr><td><b>Номера на запад</b><div class="small muted">Какие номера или этажи выходят на запад, откуда виден закат, по словам отельера</div></td><td class="muted">неизвестно</td>
       <td class="small muted">только отельер</td><td></td><td></td></tr>
     
+    <tr>
+      <td rowspan="1"><b>Автобус до аэропорта без пересадок</b><div class="small muted">От остановки в 400 м ходит автобус или электричка, у которых есть остановка у аэропорта Сочи</div>
+        </td>
+      <td>нет
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/51764141 · transit_routes:airport_direct:bd5ccad9@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: нет (2026-10-26), нет (2026-10-26)</div></td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Маршруты до аэропорта</b><div class="small muted">Номера маршрутов до аэропорта от ближайших остановок</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/51764141 · transit_routes:airport_routes:bd5ccad9@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: неизвестно (2026-10-26), неизвестно (2026-10-26)</div></td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Маршрутов транспорта у отеля</b><div class="small muted">Сколько маршрутов автобусов и электричек останавливаются в 400 м</div>
+        </td>
+      <td>0
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/51764141 · transit_routes:count:bd5ccad9@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: 0 (2026-10-26), 0 (2026-10-26)</div></td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Транспорт рядом</b><div class="small muted">Номера маршрутов с остановкой в 400 м</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/51764141 · transit_routes:list:bd5ccad9@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: неизвестно (2026-10-26), неизвестно (2026-10-26)</div></td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Транспорт до вокзала Сочи без пересадок</b><div class="small muted">От остановки в 400 м есть маршрут с остановкой у вокзала Сочи</div>
+        </td>
+      <td>нет
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/51764141 · transit_routes:sochi_station_direct:bd5ccad9@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: нет (2026-10-26), нет (2026-10-26)</div></td>
+    </tr>
+    <tr><td><b>Завтрак</b><div class="small muted">Включён в стоимость, за доплату или нет</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr>
+      <td rowspan="1"><b>СПА или сауна</b><div class="small muted">Есть ли СПА, сауна или баня</div>
+        </td>
+      <td>да
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi">https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-</a> · site_amenities:v1</div>
+        <blockquote>«Спа-центр Пространство восстановления и релакса»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Для детей</b><div class="small muted">Детская комната, аниматоры, площадка на территории</div>
+        </td>
+      <td>детская комната, детские зоны
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi">https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-</a> · site_amenities:v1</div>
+        <blockquote>«Детская комната для самых маленьких!»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr><td><b>Кондиционер</b><div class="small muted">Кондиционер в номерах</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Кухня в номере</b><div class="small muted">Кухня или кухонный уголок в номерах</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Свой пляж</b><div class="small muted">Собственный или арендованный пляж отеля</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Всё включено</b><div class="small muted">Тариф «всё включено»</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr>
+      <td rowspan="1"><b>Питомцы до, кг</b><div class="small muted">Предел веса животного по условиям отеля</div>
+        </td>
+      <td>15
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://azimuthotels.com/ru/facilities/pets_friendly_vinogradnaya">https://azimuthotels.com/ru/facilities/pets_friendly_vinogra</a> · site_amenities:v1</div>
+        <blockquote>«Стоимость размещения домашнего животного: 1 000 руб./сутки при весе до 15 кг»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Бассейн, какой</b><div class="small muted">Открытый, крытый, с подогревом, детский</div>
+        </td>
+      <td>закрытый подогреваемый и открытый подогреваемый
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi">https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-</a> · site_amenities:v1</div>
+        <blockquote>«Открытый подогреваемый бассейн в AZIMUT Парк Отель Виноградная»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Парковка, условия</b><div class="small muted">Платная или бесплатная, число мест</div>
+        </td>
+      <td>бесплатная
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi">https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-</a> · site_amenities:v1</div>
+        <blockquote>«Бесплатная парковка, круглосуточный ресепшен»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr><td><b>Лифт</b><div class="small muted">Есть ли лифт</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Трансфер</b><div class="small muted">Трансфер из аэропорта или вокзала</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Заезд с</b><div class="small muted">Время заезда</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Выезд до</b><div class="small muted">Время выезда</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr>
+      <td rowspan="1"><b>Питание</b><div class="small muted">Рестораны, кафе, бары и схема питания</div>
+        </td>
+      <td>трёхразовое питание, шведский стол или сет-меню, ресторан «НЕВА»
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-sochi">https://azimuthotels.com/ru/sochi/azimut-hotel-vinogradnaya-</a> · site_amenities:v1</div>
+        <blockquote>«предлагается трёхразовое питание в формате шведского стола или сет-меню»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr><td><b>Год постройки</b><div class="small muted">Год постройки или открытия</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Год реновации</b><div class="small muted">Год последнего ремонта</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>До моря по словам отеля</b><div class="small muted">Расстояние до моря, заявленное отелем</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr>
+      <td rowspan="1"><b>Достопримечательностей в 1 км</b><div class="small muted">Музеи, смотровые площадки, парки развлечений, зоопарки и обозначенные достопримечательности в 1 км</div>
+        </td>
+      <td>0
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/51764141 · named_within:count:19920888@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Что посмотреть рядом</b><div class="small muted">Ближайшие достопримечательности с расстоянием по прямой</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM way/51764141 · named_within:list:19920888@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
   </table></div>
 
   
@@ -587,7 +814,7 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
   </div>
   
 
-  <p class="small muted" style="margin-top:40px">Данные © участники OpenStreetMap (ODbL). Рельеф: Copernicus DEM GLO-30 © DLR e.V. 2010–2014 и © Airbus Defence and Space GmbH 2014–2018, предоставлено по программе Copernicus ЕС и ЕКА. Страница собрана 26.10.2026 14:46.</p>
+  <p class="small muted" style="margin-top:40px">Данные © участники OpenStreetMap (ODbL). Рельеф: Copernicus DEM GLO-30 © DLR e.V. 2010–2014 и © Airbus Defence and Space GmbH 2014–2018, предоставлено по программе Copernicus ЕС и ЕКА. Страница собрана 26.10.2026 17:28.</p>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>

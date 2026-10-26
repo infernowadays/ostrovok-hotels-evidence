@@ -30,23 +30,27 @@ th { font-weight:600; color:var(--muted); font-size:12px; text-transform:upperca
 a { color:var(--accent); }
 blockquote { margin:4px 0 0; padding-left:10px; border-left:3px solid var(--line); color:var(--muted); font-size:13px; }
 input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:var(--card);
-  color:var(--ink); font-size:15px; }</style>
+  color:var(--ink); font-size:15px; }
+.hero { width:100%; max-height:420px; object-fit:cover; border-radius:12px; border:1px solid var(--line); margin:12px 0 4px; }
+.lead { font-size:17px; line-height:1.55; margin:12px 0; }
+.btn { display:inline-block; padding:10px 16px; border-radius:10px; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; margin:4px 8px 4px 0; }
+.btn--ghost { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+h3 { font-size:16px; margin:20px 0 8px; }</style>
 </head>
 <body>
 <main>
-  <p class="small muted"><a href="index.html">Все отели</a></p>
+  <p class="small muted"><a href="index.html">Все отели Сочи</a></p>
   <h1>Альпийская</h1>
-  <p class="muted">Отель · Центральный
-    · <a href="https://www.openstreetmap.org/node/11958163786">OSM node/11958163786</a> · <a href="https://sochi-hotel-alpyskaya27.ru">сайт отеля</a></p>
+  <p class="muted">Отель · Центральный</p>
+  <img class="hero" src="https://sochi-hotel-alpyskaya27.ru/wp-content/uploads/2022/12/лого-1024x449.png" alt="Альпийская" loading="lazy">
+  <p class="lead">Отель в Центральном районе Сочи, 3 звезды. До пляжа 2550 м пешком, обратно подъём 133 м, по пути переход через оживлённую улицу. Из окон: море видно с 2-го этажа; закат из окон с 2-го этажа в месяцы: январь, февраль, июнь, октябрь, ноябрь, декабрь; видны горы. Ночью тихо; баров и клубов в 300 м: 1. В отеле: Wi-Fi, кондиционер, кухня в номере, своя парковка (бесплатно для гостей при наличии свободных мест, подземная), для детей: детская площадка, детская кроватка по запросу, трансфер: трансфер в/из аэропорта и ж/д вокзалов, от 4000 руб., питание: завтрак по системе сет-меню на выбор из 14 сетов, заказ у администратора. Заезд с 14:00, выезд до 12:00. С питомцами можно: бесплатно до 7 кг веса, генеральная уборка 1000 руб. за весь период. Рядом: круглосуточная аптека в 500 м, супермаркет в 500 м, детских площадок в 300 м: 5. Транспорт: до аэропорта 23.5 км, до ж/д станции 1610 м пешком, до остановки 340 м, до центра Сочи (Морской вокзал) 2.0 км, парковка в 200 м. Что посмотреть рядом: Вечный огонь (700 м), Деревянная свинка (700 м), Чиполлино в клетке (800 м), Обзорная площадка (850 м), Музей боевой славы (900 м), Слоник (900 м). Номера на запад: номера 5-8 и 105-108. В номерах плотные шторы. Номера: Студия без окна (24 м²); Студия Стандарт (20 м²); Одноместная Студия Стандарт (13 м²); Апартаменты Стандарт (25 м²); Апартаменты 2-х комнатные (30 м², вид: море); Стандарт (18 м²); Улучшенный номер (22 м²). Сайт отеля: https://sochi-hotel-alpyskaya27.ru.</p>
+  <p>
+    <a class="btn" href="https://ostrovok.ru/hotel/russia/sochi/?q=%D0%90%D0%BB%D1%8C%D0%BF%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F" rel="noreferrer">Цены и бронирование на Островке</a>
+    <a class="btn btn--ghost" href="https://sochi-hotel-alpyskaya27.ru" rel="noreferrer">Сайт отеля</a>
+  </p>
 
   <div class="grid">
-    <div class="card"><div class="small muted">Этажность</div><b>2</b>
-      <div class="small muted">из OSM</div></div>
-    <div class="card"><div class="small muted">Контур здания</div><b>здание OSM</b>
-      <div class="small muted">стороны: С 12°, В 102°, Ю 192°, З 282°</div></div>
-    <div class="card"><div class="small muted">Вход</div><b>точка у ближайшей дороги</b></div>
-    <div class="card"><div class="small muted">Снимок OSM</div><b>2026-10-25</b>
-      <div class="small muted">Geofabrik, md5 3b61b671</div></div>
+    <div class="card"><div class="small muted">До пляжа пешком</div><b>2550 м</b></div><div class="card"><div class="small muted">Вид на море</div><b>с 2-го этажа</b></div><div class="card"><div class="small muted">Закат из окон</div><b>с 2-го этажа</b></div><div class="card"><div class="small muted">Ночью</div><b>тихо</b></div><div class="card"><div class="small muted">Питомцы</div><b>можно</b></div><div class="card"><div class="small muted">До аэропорта</div><b>23.5 км</b></div>
   </div>
 
   <h2>Карта и маршрут до пляжа</h2>
@@ -55,7 +59,18 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
 
   
 
-  <h2>Что мы знаем и откуда</h2>
+  <h2 id="how">Как мы это узнали</h2>
+  <p class="small muted">Раздел для проверки данных: источник, метод, уверенность и дата каждого значения.</p>
+  <div class="grid">
+    <div class="card"><div class="small muted">Этажность</div><b>2</b>
+      <div class="small muted">из OSM</div></div>
+    <div class="card"><div class="small muted">Контур здания</div><b>здание OSM</b>
+      <div class="small muted">стороны: С 12°, В 102°, Ю 192°, З 282°</div></div>
+    <div class="card"><div class="small muted">Вход</div><b>точка у ближайшей дороги</b></div>
+    <div class="card"><div class="small muted">Снимок OSM</div><b>2026-10-25</b>
+      <div class="small muted">Geofabrik, md5 3b61b671 · <a href="https://www.openstreetmap.org/node/11958163786">OSM node/11958163786</a></div></div>
+  </div>
+  <h3>Значения, источники, уверенность</h3>
   <div class="table-wrap"><table>
     <tr><th>Характеристика</th><th>Значение</th><th>Источник и метод</th><th>Уверенность</th><th>Получено · годно до</th></tr>
     
@@ -111,6 +126,49 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
         <div class="small muted">OSM node/11958163786 · hotel_field:floors:3afa801a@v1</div>
         </td>
       <td><span class="conf"><i style="width:90%"></i></span> 0.9</td>
+      <td class="small">2026-10-26 · 2027-10-26</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><b>Wi-Fi</b><div class="small muted">Есть ли Wi-Fi по тегу internet_access в OSM или по сайту отеля</div>
+        </td>
+      <td>да
+         <span class="tag ok">в каталоге</span></td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru">https://sochi-hotel-alpyskaya27.ru</a> · site_amenities:v1</div>
+        <blockquote>«Бесплатный Wi-Fi на всей территории гостиницы»</blockquote></td>
+      <td><span class="conf"><i style="width:80%"></i></span> 0.8</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM node/11958163786 · hotel_field:wifi:7013ac2f@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-10-26</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Доступно для колясок</b><div class="small muted">Доступность для инвалидных колясок по тегу wheelchair в OSM</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM node/11958163786 · hotel_field:wheelchair:03e26113@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-10-26</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Номеров в отеле</b><div class="small muted">Число номеров по OSM или сайту отеля</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM node/11958163786 · hotel_field:rooms_total:3a46812e@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
       <td class="small">2026-10-26 · 2027-10-26</td>
     </tr>
     <tr>
@@ -328,10 +386,10 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
       <td>тихо
         </td>
       <td>расчёт по OpenStreetMap и рельефу Copernicus
-        <div class="small muted">OSM node/11958163786 · noise:label:75347c76@v1</div>
+        <div class="small muted">OSM node/11958163786 · noise:label:7821c917@v1</div>
         </td>
       <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
-      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: тихо (2026-10-26)</div></td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: тихо (2026-10-26), тихо (2026-10-26)</div></td>
     </tr>
     <tr>
       <td rowspan="1"><b>Тихая сторона здания</b><div class="small muted">Сторона света самой тихой стороны здания</div>
@@ -339,21 +397,21 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
       <td>С
         </td>
       <td>расчёт по OpenStreetMap и рельефу Copernicus
-        <div class="small muted">OSM node/11958163786 · noise:quiet_side:75347c76@v1</div>
+        <div class="small muted">OSM node/11958163786 · noise:quiet_side:7821c917@v1</div>
         </td>
       <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
-      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: С (2026-10-26)</div></td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: С (2026-10-26), С (2026-10-26)</div></td>
     </tr>
     <tr>
       <td rowspan="1"><b>Шум ночью, балл 0–10</b><div class="small muted">Оценка шума на самой тихой стороне здания, 0 тихо, 10 шумно</div>
         </td>
-      <td>0.6
+      <td>0.7
         </td>
       <td>расчёт по OpenStreetMap и рельефу Copernicus
-        <div class="small muted">OSM node/11958163786 · noise:score:75347c76@v1</div>
+        <div class="small muted">OSM node/11958163786 · noise:score:7821c917@v1</div>
         </td>
       <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
-      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: 0.6 (2026-10-26)</div></td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: 0.6 (2026-10-26), 0.6 (2026-10-26)</div></td>
     </tr>
     <tr>
       <td rowspan="2"><b>Вид на море</b><div class="small muted">Хотя бы с одной стороны здания видно море не меньше 10 % поля зрения окна</div>
@@ -478,21 +536,21 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
       <td>можно
         </td>
       <td>сайт отеля
-        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/">https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%</a> · site_extract:v1</div>
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/">https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%</a> · site_amenities:v1</div>
         <blockquote>«Питомец может разместиться с хозяином бесплатно в выбранном номере до 7 кг веса животного»</blockquote></td>
       <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
-      <td class="small">2026-10-26 · 2027-04-24</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: можно (2026-10-26)</div></td>
     </tr>
     <tr>
       <td rowspan="1"><b>Питомцы, условия</b><div class="small muted">Ограничения по весу, виду животного и доплата</div>
         </td>
-      <td>бесплатно до 7 кг, оплата генеральной уборки 1000 руб за весь период
+      <td>бесплатно до 7 кг веса, генеральная уборка 1000 руб. за весь период
         </td>
       <td>сайт отеля
-        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/">https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%</a> · site_extract:v1</div>
-        <blockquote>«Вам всего лишь придется оплатить генеральную уборку после вашего четвероного друга.»</blockquote></td>
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/">https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%</a> · site_amenities:v1</div>
+        <blockquote>«Питомец может разместиться с хозяином бесплатно в выбранном номере до 7 кг веса животного»</blockquote></td>
       <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
-      <td class="small">2026-10-26 · 2027-04-24</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: бесплатно до 7 кг, оплата генеральной уборки 1000 руб за весь период (2026-10-26)</div></td>
     </tr>
     <tr>
       <td rowspan="1"><b>Парковка у отеля</b><div class="small muted">Есть ли у отеля своя парковка по словам отеля</div>
@@ -500,10 +558,10 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
       <td>да
         </td>
       <td>сайт отеля
-        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/">https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%</a> · site_extract:v1</div>
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/">https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%</a> · site_amenities:v1</div>
         <blockquote>«собственная подземная парковка»</blockquote></td>
       <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
-      <td class="small">2026-10-26 · 2027-04-24</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: да (2026-10-26)</div></td>
     </tr>
     <tr><td><b>Бассейн</b><div class="small muted">Есть ли в отеле бассейн</div></td><td class="muted">неизвестно</td>
       <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
@@ -553,6 +611,209 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
       <td><span class="conf"><i style="width:80%"></i></span> 0.8</td>
       <td class="small">2026-10-26 · 2027-10-26</td>
     </tr>
+    <tr>
+      <td rowspan="1"><b>Автобус до аэропорта без пересадок</b><div class="small muted">От остановки в 400 м ходит автобус или электричка, у которых есть остановка у аэропорта Сочи</div>
+        </td>
+      <td>нет
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM node/11958163786 · transit_routes:airport_direct:bd5ccad9@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: нет (2026-10-26), нет (2026-10-26)</div></td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Маршруты до аэропорта</b><div class="small muted">Номера маршрутов до аэропорта от ближайших остановок</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM node/11958163786 · transit_routes:airport_routes:bd5ccad9@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: неизвестно (2026-10-26), неизвестно (2026-10-26)</div></td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Маршрутов транспорта у отеля</b><div class="small muted">Сколько маршрутов автобусов и электричек останавливаются в 400 м</div>
+        </td>
+      <td>0
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM node/11958163786 · transit_routes:count:bd5ccad9@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: 0 (2026-10-26), 0 (2026-10-26)</div></td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Транспорт рядом</b><div class="small muted">Номера маршрутов с остановкой в 400 м</div>
+        </td>
+      <td>неизвестно
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM node/11958163786 · transit_routes:list:bd5ccad9@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:0%"></i></span> 0.0</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: неизвестно (2026-10-26), неизвестно (2026-10-26)</div></td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Транспорт до вокзала Сочи без пересадок</b><div class="small muted">От остановки в 400 м есть маршрут с остановкой у вокзала Сочи</div>
+        </td>
+      <td>нет
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM node/11958163786 · transit_routes:sochi_station_direct:bd5ccad9@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:50%"></i></span> 0.5</td>
+      <td class="small">2026-10-26 · 2027-04-24<div class="muted">раньше: нет (2026-10-26), нет (2026-10-26)</div></td>
+    </tr>
+    <tr><td><b>Завтрак</b><div class="small muted">Включён в стоимость, за доплату или нет</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>СПА или сауна</b><div class="small muted">Есть ли СПА, сауна или баня</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr>
+      <td rowspan="1"><b>Для детей</b><div class="small muted">Детская комната, аниматоры, площадка на территории</div>
+        </td>
+      <td>детская площадка, детская кроватка по запросу
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru">https://sochi-hotel-alpyskaya27.ru</a> · site_amenities:v1</div>
+        <blockquote>«Детская кроватка (по запросу) Детская игровая площадка на улице и защитные барьеры»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Кондиционер</b><div class="small muted">Кондиционер в номерах</div>
+        </td>
+      <td>да
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru">https://sochi-hotel-alpyskaya27.ru</a> · site_amenities:v1</div>
+        <blockquote>«Кондиционер TV Фен Холодильник Чайник Микроволновка»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Кухня в номере</b><div class="small muted">Кухня или кухонный уголок в номерах</div>
+        </td>
+      <td>да
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru">https://sochi-hotel-alpyskaya27.ru</a> · site_amenities:v1</div>
+        <blockquote>«совмещают в себе кухонную зону и спальню»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr><td><b>Свой пляж</b><div class="small muted">Собственный или арендованный пляж отеля</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Всё включено</b><div class="small muted">Тариф «всё включено»</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr>
+      <td rowspan="1"><b>Питомцы до, кг</b><div class="small muted">Предел веса животного по условиям отеля</div>
+        </td>
+      <td>7
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/">https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%</a> · site_amenities:v1</div>
+        <blockquote>«Питомец может разместиться с хозяином бесплатно в выбранном номере до 7 кг веса животного»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr><td><b>Бассейн, какой</b><div class="small muted">Открытый, крытый, с подогревом, детский</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr>
+      <td rowspan="1"><b>Парковка, условия</b><div class="small muted">Платная или бесплатная, число мест</div>
+        </td>
+      <td>бесплатно для гостей при наличии свободных мест, подземная
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/">https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%</a> · site_amenities:v1</div>
+        <blockquote>«Для Гостей отеля Альпийская парковочные места предоставляются бесплатно. При наличии свободных мест.»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr><td><b>Лифт</b><div class="small muted">Есть ли лифт</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr>
+      <td rowspan="1"><b>Трансфер</b><div class="small muted">Трансфер из аэропорта или вокзала</div>
+        </td>
+      <td>трансфер в/из аэропорта и ж/д вокзалов, от 4000 руб.
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/">https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%</a> · site_amenities:v1</div>
+        <blockquote>«Стоимость от: 4000 руб.»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Заезд с</b><div class="small muted">Время заезда</div>
+        </td>
+      <td>14:00
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru">https://sochi-hotel-alpyskaya27.ru</a> · site_amenities:v1</div>
+        <blockquote>«Время заезда: 14:00 Время выезда: 12:00»</blockquote></td>
+      <td><span class="conf"><i style="width:80%"></i></span> 0.8</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Выезд до</b><div class="small muted">Время выезда</div>
+        </td>
+      <td>12:00
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru">https://sochi-hotel-alpyskaya27.ru</a> · site_amenities:v1</div>
+        <blockquote>«Время заезда: 14:00 Время выезда: 12:00»</blockquote></td>
+      <td><span class="conf"><i style="width:80%"></i></span> 0.8</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Питание</b><div class="small muted">Рестораны, кафе, бары и схема питания</div>
+        </td>
+      <td>завтрак по системе сет-меню на выбор из 14 сетов, заказ у администратора
+        </td>
+      <td>сайт отеля
+        <div class="small muted"><a href="https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/">https://sochi-hotel-alpyskaya27.ru/%D1%83%D1%81%D0%BB%D1%83%</a> · site_amenities:v1</div>
+        <blockquote>«Вкусный и сытный завтрак на выбор из 14 сетов Вы можете заказать у администратора отеля.»</blockquote></td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr><td><b>Год постройки</b><div class="small muted">Год постройки или открытия</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>Год реновации</b><div class="small muted">Год последнего ремонта</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr><td><b>До моря по словам отеля</b><div class="small muted">Расстояние до моря, заявленное отелем</div></td><td class="muted">неизвестно</td>
+      <td class="small muted">нет на сайте или сайта нет</td><td></td><td></td></tr>
+    
+    <tr>
+      <td rowspan="1"><b>Достопримечательностей в 1 км</b><div class="small muted">Музеи, смотровые площадки, парки развлечений, зоопарки и обозначенные достопримечательности в 1 км</div>
+        </td>
+      <td>6
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM node/11958163786 · named_within:count:19920888@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
+    <tr>
+      <td rowspan="1"><b>Что посмотреть рядом</b><div class="small muted">Ближайшие достопримечательности с расстоянием по прямой</div>
+        </td>
+      <td>Вечный огонь (700 м), Деревянная свинка (700 м), Чиполлино в клетке (800 м), Обзорная площадка (850 м), Музей боевой славы (900 м), Слоник (900 м)
+        </td>
+      <td>расчёт по OpenStreetMap и рельефу Copernicus
+        <div class="small muted">OSM node/11958163786 · named_within:list:19920888@v1</div>
+        </td>
+      <td><span class="conf"><i style="width:70%"></i></span> 0.7</td>
+      <td class="small">2026-10-26 · 2027-04-24</td>
+    </tr>
   </table></div>
 
   
@@ -592,7 +853,7 @@ input[type=search] { width:100%; padding:10px 12px; border:1px solid var(--line)
   </div>
   
 
-  <p class="small muted" style="margin-top:40px">Данные © участники OpenStreetMap (ODbL). Рельеф: Copernicus DEM GLO-30 © DLR e.V. 2010–2014 и © Airbus Defence and Space GmbH 2014–2018, предоставлено по программе Copernicus ЕС и ЕКА. Страница собрана 26.10.2026 14:46.</p>
+  <p class="small muted" style="margin-top:40px">Данные © участники OpenStreetMap (ODbL). Рельеф: Copernicus DEM GLO-30 © DLR e.V. 2010–2014 и © Airbus Defence and Space GmbH 2014–2018, предоставлено по программе Copernicus ЕС и ЕКА. Страница собрана 26.10.2026 17:28.</p>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
