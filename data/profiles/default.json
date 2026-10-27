@@ -1,6 +1,6 @@
 {
  "demo": true,
- "id": "demo-anna",
+ "id": "default",
  "name": "Анна",
  "guru_level": "Gold",
  "city": "Москва",
